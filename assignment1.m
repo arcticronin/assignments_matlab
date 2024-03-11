@@ -1,5 +1,7 @@
 accuracy_5x2 = [];
 
+
+
 for ndataset = 1:4
     switch ndataset
         case 1, load Datasets/dataset1.mat
@@ -94,3 +96,29 @@ for ndataset = 1:4
     accuracy_5x2(ndataset, 1) = mean(accuracy_times);
 
 end
+
+try1 = fitmodels(data_te, labels_te);
+
+function s = fitmodels(X, y)
+        % training calssifier(s)
+        SVM_LIN = fitcsvm(X, y, 'KernelFunction',...
+            'linear', 'KernelScale', 1);
+        SVM_RBF = fitcsvm(X, y, 'KernelFunction',...
+            'gaussian', 'KernelScale', 0.1);
+        KNN = fitcknn(X, y, 'Distance',...
+            'Euclidean', 'Numneighbors', 10);
+        TREE = fitctree(X, y, 'SplitCriterion',...
+            'gdi', 'MaxNumSplits', 15);
+        
+        m1.name = "svm_lin";
+        m1.model = SVM_LIN;
+        m2.name = "svm_rbf";
+        m2.model = SVM_RBF;
+        m3.name = "knn";
+        m3.model = KNN;
+        m4.name = "tree";
+        m4.model = TREE;
+
+        s = {m1, m2, m3, m4};
+end
+
