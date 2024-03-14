@@ -33,10 +33,12 @@ for ndataset = 1:4 % todo swap back to 4
 
         % training calssifier(s)
         % train on training split, test on test split
-
-        models = fitmodels(data_tr, labels_tr);
-       
-
+        
+            models = fitmodels(data_tr, labels_tr);
+        
+        if ndataset==1
+            plotgrid(models{2}.model, data, labels);
+        end
         predictionsTable = table();   
         accuraciesTable = table();
 
@@ -77,6 +79,7 @@ for ndataset = 1:4 % todo swap back to 4
     end
     
     accuracy_5x2_all(ndataset,:) = mean(accuracy_arrays);
+
 end
 
 
@@ -199,4 +202,24 @@ function plottadataset()
         subplot(2,2,4);
         gscatter(data(:,1), data(:,2), labels) ; 
         title("dataset\_4");
+end
+
+function plotgrid(cl, data, labels)
+    % Predict scores over the grid
+    d = 0.02;
+    [x1Grid,x2Grid] = meshgrid(min(data(:,1)):d:max(data(:,1)),...
+        min(data(:,2)):d:max(data(:,2)));
+    xGrid = [x1Grid(:),x2Grid(:)];
+    [~,scores] = predict(cl,xGrid);
+    
+    % Plot the data and the decision boundary
+    figure;
+    h(1:2) = gscatter(data(:,1),data(:,2),labels, "rb",'.');
+    hold on
+    %ezpolar(@(x)1);
+    h(3) = plot(data(cl.IsSupportVector,1),data(cl.IsSupportVector,2),'ko');
+    contour(x1Grid,x2Grid,reshape(scores(:,2),size(x1Grid)),[0 0],'k');
+    legend(h,{'class 1','class 2','Support Vectors'});
+    axis equal
+    hold off
 end
