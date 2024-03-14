@@ -75,8 +75,9 @@ for ndataset = 1:4 % todo swap back to 4
         accuracy_arrays(ntimes, :) = averageAccuraciesArray;
         
     end
-    
+
     accuracy_5x2_all(ndataset,:) = mean(accuracy_arrays);
+
 end
 
 
@@ -101,17 +102,17 @@ function s = fitmodels(X, y)
             'linear', 'KernelScale', 1);
 
         SVM_RBF = fitcsvm(X, y, 'KernelFunction',...
-            'gaussian', 'KernelScale', 0.8);
+            'gaussian', 'KernelScale', 0.1);
 
         % k nearest neighbor
         % hyperpars =  Euclidean Distance , k=10
         KNN = fitcknn(X, y, 'Distance',...
-            'Euclidean', 'Numneighbors', 12);
+            'Euclidean', 'Numneighbors', 10);
 
         % tree
         % hyperpars max number of splits = 15
         TREE = fitctree(X, y, 'SplitCriterion',...
-            'gdi', 'MaxNumSplits', 11);
+            'gdi', 'MaxNumSplits', 15);
         
         m1.name = "svm_lin";
         m1.model = SVM_LIN;
@@ -169,18 +170,13 @@ function cv = compute_CV(m)
 end
 
 function plot_err_bars(m, cv)
-    errorbar(mean(m), 1:4, cv/2, 'horizontal', 'Marker', 'square', ...
-             'LineWidth', 1.5, 'MarkerSize', 10);
-    xlabel("Rank"); % Label for the x-axis
-    % Uncomment the following line to set the y-axis label
-    % ylabel("Classifier");
-    ylim([0.1, 4.9]); % Set y-axis limits
-    xlim([0.6, 4.4]); % Set x-axis limits
-    labels = {"svm\_lin", "svm\_rbf", "knn", "tree"}; % Define labels for each classifier
-    yticks(1:4); % Set ticks on the y-axis at positions 1 through 4
-    yticklabels(labels); % Apply the labels to these ticks
+    errorbar(mean(m), 1:4, cv/2, "horizontal", "Marker","o");
+    ylim([0,5]);
+    labels = {"svm_lin", "svm_rbf", "knn", "tree"};
+    yticks(1:4);
+    yticklabels(labels);
+    y
 end
-
 
 function plottadataset()
         load Datasets/dataset1.mat;
