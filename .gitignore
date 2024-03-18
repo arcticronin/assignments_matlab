@@ -1,0 +1,7 @@
+# BEGIN: /home/ronin/Dev/notebooks/machinelearningformodeling/supervisedLearning/.gitignore
+*.svg
+*.mat
+Data/
+Datasets/
+Images/
+# END: /home/ronin/Dev/notebooks/machinelearningformodeling/supervisedLearning/.gitignore
