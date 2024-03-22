@@ -15,7 +15,7 @@ figure(2), clf, imagesc(sceneImage);
 
 %% we can also crop download it
 
-% boxImage2 = imcrop(boxImage);
+boxImage2 = imcrop(boxImage);
 
 %% compute scale factor
 % so that we can perform sliding window with a fixed scale we compute it 
@@ -61,9 +61,9 @@ toc
 
 %% now use keypoints
 
-clear all;
-close all;
-clc;
+% clear all;
+% close all;
+% clc;
 
 %%  keypoint detection
 

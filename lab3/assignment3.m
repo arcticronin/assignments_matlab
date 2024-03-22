@@ -1,7 +1,8 @@
 %% read images
+clear all;
 
 % template
-boxImage = imread("stapleRemover.jpg");
+boxImage = imread("elephant.jpg");
 
 % desk
 sceneImage = imread("clutteredDesk.jpg");
@@ -10,8 +11,8 @@ sceneImage = imread("clutteredDesk.jpg");
 % figure(1), clf, imshow(boxImage);
 % figure(2), clf, imshow(sceneImage);
 
-figure(1), clf, imagesc(boxImage);
-figure(2), clf, imagesc(sceneImage);
+% figure(1), clf, imagesc(boxImage);
+% figure(2), clf, imagesc(sceneImage);
 
 %% we can also crop download it
 
@@ -22,8 +23,8 @@ figure(2), clf, imagesc(sceneImage);
 % (manually) as te ratio og the same box dimension in the two images
 
 % it's more or less 3 times smaller, in the template that in the image
-fs = 2.82;
-boxImage = imresize(boxImage, 1/fs);
+% fs = 2.82;
+% boxImage = imresize(boxImage, 1/fs);
 % boxImage = imresize(boxImage, [1,2]);
 
 % figure(1), clf, imagesc(boxImage);
@@ -33,8 +34,8 @@ boxImage = imresize(boxImage, 1/fs);
 %%  keypoint detection
 tic
 
-boxPoints = detectSURFFeatures(boxImage);
-scenePoints = detectSURFFeatures(sceneImage);
+boxPoints = detectSURFFeatures(boxImage, "NumOctaves", 8, "MetricThreshold", 50);
+scenePoints = detectSURFFeatures(sceneImage, "NumOctaves", 8, "MetricThreshold", 50);
 
 figure(1), clf
 imshow (boxImage), hold on
@@ -77,12 +78,13 @@ line(newBoxPoly(:, 1), newBoxPoly(:,2), 'Color', 'y');
 hold off
 toc
 
+disp("here we go to precise mode");
 %% more precise bounding box
 figure, clf
 imshow(boxImage);
 
 % get coordinate from the mouse!! noaise
-[x, y] = ginput(4);
+[x, y] = ginput(6);
 
 %%
 
