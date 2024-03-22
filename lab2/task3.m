@@ -6,7 +6,7 @@
 % split is not performad and the same data is used to train the level-1
 % classifiers and the meta classifier
 
-results = dictionary();
+% results = dictionary();
 %% Stack Classifiers
 
 load dataset.mat
@@ -16,25 +16,16 @@ load dataset.mat
 % 1200 train and 1200 test
 %%
 
-u=find(labels_tr==1);
-figure(1),
-hold on
-plot(data_tr(u,1), data_tr(u,2), '.', 'Color', [0.09, 0.63, 0.52])
-u=find(labels_tr==2);
-plot(data_tr(u,1), data_tr(u,2), '.' ,'Color', [0.9, 0.49, 0.13])
-
-u=find(labels_te==1);
-figure(1),
-hold on
-plot(data_te(u,1), data_te(u,2),'.', 'Color', [0.09, 0.63, 0.52] )
-u=find(labels_tr==2);
-plot(data_te(u,1), data_te(u,2), '.' ,'Color', [0.9, 0.49, 0.13])
-
-xlabel('x1');
-ylabel('x2');
-title('Dataset');
-
-hold off
+% u=find(labels_tr==1);
+% figure(1),
+% hold on
+% plot(data_tr(u,1), data_tr(u,2), 'r.')
+% u=find(labels_tr==2);
+% plot(data_tr(u,1), data_tr(u,2), 'b.')
+% xlabel('x1');
+% ylabel('x2');
+% title('Dataset');
+% hold off
 
 %%
 % right procedure: train classifiers on different data (on 2 different folds)
@@ -44,69 +35,61 @@ hold off
 % random number generator 
 rng('default'); %% for reproducibility
 
-idx_f1 = [];
-idx_f2 = [];
-
-for nclass = 1:2
-    u = find(labels_tr == nclass);
-    idx = randperm(numel(u));
-    % so I know the data is balanced, stratifyed sampling
-    idx_f1 = [idx_f1; u(idx(1:round(numel(idx)/2)))];
-    idx_f2 = [idx_f2; u(idx(1+round(numel(idx)/2):end))];
-end
-
-% training data
-labels_f1 = labels_tr(idx_f1);
-labels_f2 = labels_tr(idx_f2);
-
-data_f1 = data_tr(idx_f1,:);
-data_f2 = data_tr(idx_f2,:);
-
 %% train level 1 classifiers on fold 1 
 mdl = {};
 
 % SVM with gaussian kernel
 rng('default');
-mdl{1} = fitcsvm(data_f1, labels_f1, 'KernelFunction','gaussian', ...
+mdl{1} = fitcsvm(data_tr, labels_tr, 'KernelFunction','gaussian', ...
     'KernelScale', 5);
 
 % SVM with gaussian kernel
 rng('default');
-mdl{2} = fitcsvm(data_f1, labels_f1, 'KernelFunction','polynomial', ...
+mdl{2} = fitcsvm(data_tr, labels_tr, 'KernelFunction','polynomial', ...
     'KernelScale', 10);
 
 % decision tree
 rng('default');
-mdl{3} = fitctree(data_f1, labels_f1, 'SplitCriterion', ...
+mdl{3} = fitctree(data_tr, labels_tr, 'SplitCriterion', ...
     'gdi', 'MaxNumSplits', 20);
 
 % Naive Bayes
 rng('default');
-mdl{4} = fitcnb(data_f1, labels_f1);
+mdl{4} = fitcnb(data_tr, labels_tr);
 
 % ensemble of decision tree
 rng('default');
-mdl{5} = fitcensemble( data_f1, labels_f1);
+mdl{5} = fitcensemble( data_tr, labels_tr);
 
-%% predictions on fold 2 (to be used to train the models) 
+%% predictions on the same fold (to be used to train the models) 
 
 N = numel(mdl);
 
-Predictions = zeros(size(data_f2,1),N);
+Predictions = zeros(size(data_tr,1),N);
 % scores are one step before the predictions, but MORE INFORMATIVE in{-inf, +inf}
-Scores = zeros(size(data_f2, 1), N);
+Scores = zeros(size(data_tr, 1), N);
 
 for ii = 1:N
-    [predictions, scores] = predict(mdl{ii}, data_f2);
+    [predictions, scores] = predict(mdl{ii}, data_tr);
     Predictions(:,ii) = predictions;
     Scores(:,ii) = scores(:,1);
 end
 % i obtained the features where to train second level classifier
 
+
+
+
+
 %% train the stacked classifier on fold 2
+
+
+
+
+
 rng("default");
-stackedModel = fitcensemble(Scores, labels_f2, "Method", "Bag");
-% stackedModel = fitcensemble(Scores, labels_f2, "Method", "AdaBoostM1");
+stackedModel = fitcensemble(Scores, labels_te, "Method", "Bag");
+% stackedModel = fitcensemble(Scores, labels_te, "Method", "Bag");
+% stackedModel = fitcensemble(Scores, labels_te, "Method", "AdaBoostM1");
 
 mdl{N+1} = stackedModel;
 
@@ -129,6 +112,6 @@ ACC(N+1) = numel(find(predictions == labels_te)) ...
                 / numel(labels_te);
 
 
-results{"correct approach"} = ACC;
+% results{"correct approach"} = ACC;
 % results{"trained on prediction (less informative)"} = ACC;
-% results{"no folds"} = ACC;
+results{"no folds"} = ACC;

@@ -6,7 +6,7 @@
 % split is not performad and the same data is used to train the level-1
 % classifiers and the meta classifier
 
-results = dictionary();
+% results = dictionary();
 %% Stack Classifiers
 
 load dataset.mat
@@ -16,25 +16,13 @@ load dataset.mat
 % 1200 train and 1200 test
 %%
 
-u=find(labels_tr==1);
-figure(1),
-hold on
-plot(data_tr(u,1), data_tr(u,2), '.', 'Color', [0.09, 0.63, 0.52])
-u=find(labels_tr==2);
-plot(data_tr(u,1), data_tr(u,2), '.' ,'Color', [0.9, 0.49, 0.13])
-
-u=find(labels_te==1);
-figure(1),
-hold on
-plot(data_te(u,1), data_te(u,2),'.', 'Color', [0.09, 0.63, 0.52] )
-u=find(labels_tr==2);
-plot(data_te(u,1), data_te(u,2), '.' ,'Color', [0.9, 0.49, 0.13])
-
-xlabel('x1');
-ylabel('x2');
-title('Dataset');
-
-hold off
+% u=find(labels_tr==1);
+% figure(1),
+% hold on
+% plot(data_tr(u,1), data_tr(u,2), 'r.')
+% u=find(labels_tr==2);
+% plot(data_tr(u,1), data_tr(u,2), 'b.')
+% hold off
 
 %%
 % right procedure: train classifiers on different data (on 2 different folds)
@@ -105,7 +93,7 @@ end
 
 %% train the stacked classifier on fold 2
 rng("default");
-stackedModel = fitcensemble(Scores, labels_f2, "Method", "Bag");
+stackedModel = fitcensemble(Predictions, labels_f2, "Method", "Bag");
 % stackedModel = fitcensemble(Scores, labels_f2, "Method", "AdaBoostM1");
 
 mdl{N+1} = stackedModel;
@@ -124,11 +112,11 @@ for ii = 1:N
                 / numel(labels_te);
 end
 
-predictions = predict(mdl{N+1}, Scores);
+predictions = predict(mdl{N+1}, Predictions);
 ACC(N+1) = numel(find(predictions == labels_te)) ...
                 / numel(labels_te);
 
 
-results{"correct approach"} = ACC;
-% results{"trained on prediction (less informative)"} = ACC;
+% results{"correct approach"} = ACC;
+results{"trained on prediction (less informative)"} = ACC;
 % results{"no folds"} = ACC;
