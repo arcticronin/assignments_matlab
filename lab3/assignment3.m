@@ -7,30 +7,6 @@ boxImage = imread("elephant.jpg");
 % desk
 sceneImage = imread("clutteredDesk.jpg");
 
-% clf clear contentof figure
-% figure(1), clf, imshow(boxImage);
-% figure(2), clf, imshow(sceneImage);
-
-% figure(1), clf, imagesc(boxImage);
-% figure(2), clf, imagesc(sceneImage);
-
-%% we can also crop download it
-
-% boxImage2 = imcrop(boxImage);
-
-%% compute scale factor
-% so that we can perform sliding window with a fixed scale we compute it 
-% (manually) as te ratio og the same box dimension in the two images
-
-% it's more or less 3 times smaller, in the template that in the image
-% fs = 2.82;
-% boxImage = imresize(boxImage, 1/fs);
-% boxImage = imresize(boxImage, [1,2]);
-
-% figure(1), clf, imagesc(boxImage);
-
-
-
 %%  keypoint detection
 tic
 
@@ -49,7 +25,9 @@ plot(selectStrongest(scenePoints, 100)), hold off
 [boxFeatures, boxPoints] = extractFeatures(boxImage, boxPoints);
 [sceneFeatures, scenePoints] = extractFeatures(sceneImage, scenePoints);
 
-boxPairs = matchFeatures(boxFeatures, sceneFeatures);
+% Match features
+boxPairs = matchFeatures(boxFeatures, sceneFeatures, 'MatchThreshold', 50, 'MaxRatio', 0.7);
+%boxPairs = matchFeatures(boxFeatures, sceneFeatures);
 matchedBoxPoints = boxPoints(boxPairs(:,1),:);
 matchedScenePoints = scenePoints(boxPairs(:,2),:);
 showMatchedFeatures(boxImage, sceneImage, matchedBoxPoints, ...
@@ -78,33 +56,18 @@ line(newBoxPoly(:, 1), newBoxPoly(:,2), 'Color', 'y');
 hold off
 toc
 
-disp("here we go to precise mode");
-%% more precise bounding box
-figure, clf
-imshow(boxImage);
-
-% get coordinate from the mouse!! noaise
-[x, y] = ginput(6);
-
-%%
-
-x = [x ; x(1)];
-y = [y ; y(1)];
-
-newBoxPoly = transformPointsForward(tform, [x,y]);
-
-figure, clf
-
-imshow(sceneImage), hold on
-
-line(newBoxPoly(:, 1), newBoxPoly(:,2), 'color', 'r');
-hold off
-
-
 %% assignment
-% 1) run as is with elephant
-% 2) change parameters in detectSURFFeaturesmaybe returning more points can be good
-% 3) also matchfeatures can be used to get more points
-% 4) also estimate geometricTransform can be parametrize
-% 5) also changing the shape of the box around the elephant: more than 5
-% points polygons would work
+% 1)[x] run as is with elephant
+% 2)[x] change parameters in detectSURFFeaturesmaybe returning more points can be good
+% 3)[x] added modality ORB
+% 3)[x] also matchfeatures can be used to get more points
+% 4)[] also estimate geometricTransform can be parametrize
+% 5)[x] also changing the shape of the box around the elephant: more than 5
+% points
+% keypoints from stape remover = 389
+% keypoints same code with eleph = 272
+% 
+% after parametrization 898 keypoints
+% boxPoints = detectSURFFeatures(boxImage, "NumOctaves", 8, "MetricThreshold", 50);
+
+

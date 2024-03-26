@@ -100,9 +100,12 @@ hold off
 
 
 %% assignment
-% 1) run as is with elephant
-% 2) change parameters in detectSURFFeaturesmaybe returning more points can be good
-% 3) also matchfeatures can be used to get more points
-% 4) also estimate geometricTransform can be parametrize
-% 5) also changing the shape of the box around the elephant: more than 5
+% 1)[x] run as is with elephant
+% 2)[] change parameters in detectSURFFeaturesmaybe returning more points can be good
+% 3)[] also matchfeatures can be used to get more points
+% 4)[] also estimate geometricTransform can be parametrize
+% 5)[x] also changing the shape of the box around the elephant: more than 5
+% 
 % points polygons would work
+% keypoints from stape remover = 389
+% keypoints same code with eleph = 272
