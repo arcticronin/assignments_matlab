@@ -58,16 +58,24 @@ toc
 
 %% more precise bounding box
 figure, clf
-imshow(boxImage)
-[x,y]=ginput(10);
+imshow(boxImage), hold on
+[x,y]=ginput(12);
 x=[x; x(1)];
 y=[y; y(1)];
 newBoxPoly=transformPointsForward(tform,[x y]);
+hold off
+
 figure, clf
 imshow(sceneImage), hold on
 line(newBoxPoly(:,1),newBoxPoly(:,2),'Color','y')
 hold off
 toc
+
+%%
+figure, clf
+imshow(boxImage), hold on
+line(x,y, 'color','r')
+hold off
 
 
 %% assignment
