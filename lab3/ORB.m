@@ -33,11 +33,11 @@ figure(1), clf
 imshow(boxImage), hold on
 
 % showscale to suppress circles
-plot(selectStrongest(boxPoints, 100), 'ShowScale', false), hold off
+plot(selectStrongest(boxPoints, 400)), hold off
 
 figure(2), clf
 imshow(sceneImage), hold on
-plot(selectStrongest(scenePoints, 100), 'ShowScale', false), hold off
+plot(selectStrongest(scenePoints, 400)), hold off
 
 %% Keypoint Description and Matching
 % Extract ORB features
@@ -85,7 +85,7 @@ toc
 %% more precise bounding box
 figure, clf
 imshow(boxImage), hold on
-[x,y]=ginput(10);
+[x,y]=ginput(12);
 x=[x; x(1)];
 y=[y; y(1)];
 newBoxPoly=transformPointsForward(tform,[x y]);

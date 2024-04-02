@@ -1,29 +1,29 @@
 %% read images
 
 % template
-boxImage = imread("stapleRemover.jpg");
+boxImage = imread("elephant.jpg");
 
 % desk
 sceneImage = imread("clutteredDesk.jpg");
 
 % clf clear contentof figure
-% figure(1), clf, imshow(boxImage);
-% figure(2), clf, imshow(sceneImage);
+%figure(1), clf, imshow(boxImage);
+%figure(2), clf, imshow(sceneImage);
 
 figure(1), clf, imagesc(boxImage);
 figure(2), clf, imagesc(sceneImage);
 
 %% we can also crop download it
 
-boxImage2 = imcrop(boxImage);
+boxImage = imcrop(boxImage);
 
 %% compute scale factor
 % so that we can perform sliding window with a fixed scale we compute it 
 % (manually) as te ratio og the same box dimension in the two images
 
 % it's more or less 3 times smaller, in the template that in the image
-fs = 2.82;
-boxImage = imresize(boxImage, 1/fs);
+% fs = 2.82;
+% boxImage = imresize(boxImage, 1/fs);
 % boxImage = imresize(boxImage, [1,2]);
 
 % figure(1), clf, imagesc(boxImage);
@@ -37,7 +37,7 @@ sceneImage = im2double(sceneImage);
 Sb = size(boxImage);
 Ss = size(sceneImage);
 
-step = 5; % 1 is every pixel, 5 is skipping 5 every time
+step = 2; % 1 is every pixel, 5 is skipping 5 every time
 Map = [];
 
 %% sliding: 2 nested cycles, 1 for the rows 1 for the columns
@@ -59,13 +59,5 @@ for rr = 1 : step : (Ss(1)-Sb(1))
 end
 toc
 
-%% now use keypoints
-
-% clear all;
-% close all;
-% clc;
-
-%%  keypoint detection
-
-% boxPoints = detectSURFFeatures(boxImage);
-% scenePoints = detectSURFFeatures(sceneImage);
+%figure(5), clf, imagesc(sceneImage);
+%figure(4), clf, imagesc(boxImage)
