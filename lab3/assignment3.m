@@ -10,9 +10,8 @@ sceneImage = imread("clutteredDesk.jpg");
 %%  keypoint detection
 tic
 
-boxPoints = detectSURFFeatures(boxImage, "NumOctaves", 8, "MetricThreshold", 50);
-scenePoints = detectSURFFeatures(sceneImage, "NumOctaves", 8, "MetricThreshold", 50);
-
+boxPoints = detectSURFFeatures(boxImage, "NumOctaves", 8, "MetricThreshold", 200);
+scenePoints = detectSURFFeatures(sceneImage, "NumOctaves", 8, "MetricThreshold", 200);
 figure(1), clf
 imshow (boxImage), hold on
 plot(selectStrongest(boxPoints, 100)), hold off
@@ -78,18 +77,5 @@ line(x,y, 'color','r')
 hold off
 
 
-%% assignment
-% 1)[x] run as is with elephant
-% 2)[x] change parameters in detectSURFFeaturesmaybe returning more points can be good
-% 3)[x] added modality ORB
-% 3)[x] also matchfeatures can be used to get more points
-% 4)[] also estimate geometricTransform can be parametrize
-% 5)[x] also changing the shape of the box around the elephant: more than 5
-% points
-% keypoints from stape remover = 389
-% keypoints same code with eleph = 272
-% 
-% after parametrization 898 keypoints
-% boxPoints = detectSURFFeatures(boxImage, "NumOctaves", 8, "MetricThreshold", 50);
 
 

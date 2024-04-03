@@ -10,7 +10,7 @@ boxImage = imread("elephant.jpg");
 % desk
 sceneImage = imread("clutteredDesk.jpg");
 
-J = imhistmatch(boxImage,sceneImage);
+J = imhistmatch(sceneImage,boxImage);
 %J = histeq(sceneImage);
 
 
@@ -21,8 +21,7 @@ J = imhistmatch(boxImage,sceneImage);
 figure(1), clf, imagesc(boxImage);
 figure(2), clf, imagesc(sceneImage);
 figure(3), clf, imagesc(J);
-hold off;
-boxImage=J;
+
 figure(4);
 
 %% we can also crop download it

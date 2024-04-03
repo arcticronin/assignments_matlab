@@ -33,7 +33,7 @@ product = fftScene .* conj(fftBox);
 correlationMap = ifft2(product);
 
 % Find the maximum correlation to locate the template, at coord x y
-[maxCorr, ind] = max(abs(correlationMap(:)));
+[maxCorr, ind] = min(abs(correlationMap(:)));
 [y, x] = ind2sub(size(correlationMap), ind);
 
 % Display the scene image
