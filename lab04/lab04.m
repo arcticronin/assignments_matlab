@@ -1,0 +1,106 @@
+% Train gemerating some false positive, then use them as negative one to train again -> sequentially training the model to correct himself
+
+%% Negative Class
+
+neg=dir('./CaltechFaces/my_train_non_face_scenes/*.jpg');
+% create variants -> we are sure that we are not introducing any faces
+%% negative class augmentation
+
+mkdir('CaltechFaces/my2_train_non_face_scenes/')
+outdir = 'CaltechFaces/my2_train_non_face_scenes/';
+
+for ii=1:size(neg,1)
+    im = imread([neg(ii).folder filesep neg(ii,1).name]);
+    imwrite(im,[outdir filesep neg(ii,1).name]);
+
+    [pp,ff,ee] = fileparts(neg(ii).name);
+    im_flip = fliplr(im);
+    imwrite(im_flip,[outdir filesep ff '_flip' ee]); % append to the name "ff" the flip and the original extension "ee"
+
+    % TODO <----------------- we should also consider up-down version? (flipud)
+    im_ud = flipud(im);
+    imwrite(im_flip,[outdir filesep ff '_flipud' ee]);
+    
+   
+    for nrot=1:50 % TODO <--------- choose number of rotations
+        imr = imrotate(im, 180*rand(1)-90, 'crop'); % TODO <----------- rotation range
+        imwrite(imr,[outdir filesep ff '_r' num2str(nrot) ee]);
+    end
+end
+
+%%
+negativeFolder = 'CaltechFaces/my2_train_non_face_scenes/';
+negativeImages = imageDatastore(negativeFolder);    % fast way to accedere to images
+
+%% Positive Class
+
+faces = dir('CaltechFaces/my_train_faces/*.jpg');   % images contain alreaty cropped faces
+sz = [size(faces,1) 2];
+varTypes = {'cell','cell'};
+varNames = {'imageFilename','face'};
+facesIMDB = table('Size',sz,'VariableTypes',varTypes,'VariableNames',varNames);
+
+for ii=1:size(faces,1)
+    facesIMDB.imageFilename(ii) = {[faces(ii).folder filesep faces(ii).name]};
+    facesIMDB.face(ii) = {[1 1 32 32]};
+end
+
+positiveInstances = facesIMDB;
+    
+%% VJ detector training 
+
+trainCascadeObjectDetector('myFaceDetector.xml', positiveInstances, negativeImages,'FalseAlarmRate',0.6,'NumCascadeStages',2, 'FeatureType','Haar');
+% TODO <--------------- change the values and have a look at the available options
+
+% stage 1 faster because task easy and we are using minor number of
+% classifier
+% stage 2 we are using lot more classifiers
+
+
+% now we are ready to test the images
+%% Visualize the results
+
+detector = vision.CascadeObjectDetector('myFaceDetector.xml');
+
+%  vision.CascadeObjectDetector() is the matlab standard provided that can
+%  detect very well
+
+imgs = dir('CaltechFaces/test_scenes/test_jpg/*.jpg');
+    
+for ii = 1:size(imgs,1)
+    img = imread([imgs(ii).folder filesep imgs(ii).name]);
+    bbox = step(detector,img);
+
+    detectedImg = insertObjectAnnotation(img,'rectangle',bbox,'face');
+    detectedImg = imresize(detectedImg,800/max(size(detectedImg)));
+
+    figure(1), clf
+    imshow(detectedImg)
+    waitforbuttonpress
+end
+
+
+%% now we want to measure the score obtained 
+% Compute our results
+
+load('CaltechFaces/test_scenes/GT.mat');
+
+detector = vision.CascadeObjectDetector('myFaceDetector.xml');
+numImages = size(imgs,1);
+results = table('Size', [numImages 2], 'VariableTypes', {'cell', 'cell'}, 'VariableNames',{'face', 'Scores'});
+
+for ii= 1:size(imgs,1)
+    img = imread([imgs(ii).folder filesep imgs(ii).name]);
+    bbox = step(detector,img);
+    results.face{ii} = bbox;
+    results.Scores{ii} = 0.5*zeros(size(bbox,1),1); % it's a constant in all our detectors
+end
+
+%% compute average precision
+
+[ap, recall, precision]= evaluateDetectionPrecision (results, GT,0.2);
+figure(2), clf
+plot(recall, precision)
+grid on
+title(sprintf('Average Precision = %.1f',ap))
+
