@@ -18,12 +18,10 @@ for ii=1:size(neg,1)
     imwrite(im_flip,[outdir filesep ff '_flip' ee]); % append to the name "ff" the flip and the original extension "ee"
 
     % TODO <----------------- we should also consider up-down version? (flipud)
-    im_ud = flipud(im);
-    imwrite(im_flip,[outdir filesep ff '_flipud' ee]);
     
    
-    for nrot=1:50 % TODO <--------- choose number of rotations
-        imr = imrotate(im, 180*rand(1)-90, 'crop'); % TODO <----------- rotation range
+    for nrot=1:2 % TODO <--------- choose number of rotations
+        imr = imrotate(im, 40*rand(1)-20, 'crop'); % TODO <----------- rotation range
         imwrite(imr,[outdir filesep ff '_r' num2str(nrot) ee]);
     end
 end
@@ -49,7 +47,7 @@ positiveInstances = facesIMDB;
     
 %% VJ detector training 
 
-trainCascadeObjectDetector('myFaceDetector.xml', positiveInstances, negativeImages,'FalseAlarmRate',0.6,'NumCascadeStages',2, 'FeatureType','Haar');
+trainCascadeObjectDetector('myFaceDetector.xml', positiveInstances, negativeImages,'FalseAlarmRate',0.1,'NumCascadeStages',2);
 % TODO <--------------- change the values and have a look at the available options
 
 % stage 1 faster because task easy and we are using minor number of
