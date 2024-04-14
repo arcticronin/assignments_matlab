@@ -52,7 +52,7 @@ positiveInstances = facesIMDB;
 %trainCascadeObjectDetector('myFaceDetector.xml', positiveInstances, negativeImages,'FalseAlarmRate',0.1,'NumCascadeStages',2);
 % TODO <--------------- change the values and have a look at the available options
 
-trainCascadeObjectDetector('myFaceDetector.xml', positiveInstances, negativeImages,'FalseAlarmRate',0.4,'NumCascadeStages',11,'FeatureType','HOG');
+trainCascadeObjectDetector('myFaceDetector.xml', positiveInstances, negativeImages,'FalseAlarmRate',0.3,'NumCascadeStages',10,'Fact ',FeatureType','LBP');
 
 % for 0.7 trainCascadeObjectDetector('myFaceDetector.xml', positiveInstances, negativeImages,'FalseAlarmRate',0.2,'NumCascadeStages',10, 'NegativeSamplesFactor',4, 'TruePositiveRate',0.999, 'FeatureType','LBP');
 
@@ -91,7 +91,7 @@ end
 
 load('CaltechFaces/test_scenes/GT.mat');
 
-detector = vision.CascadeObjectDetector('0.7-myFaceDetector.xml');
+detector = vision.CascadeObjectDetector('myFaceDetector.xml');
 numImages = size(imgs,1);
 results = table('Size', [numImages 2], 'VariableTypes', {'cell', 'cell'}, 'VariableNames',{'face', 'Scores'});
 

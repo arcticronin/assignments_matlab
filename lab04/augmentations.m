@@ -45,7 +45,7 @@ for ii = 1:size(neg,1)
 end
 
 %% Augrentation of positive faces
-
+mkdir('CaltechFaces/my2_train_faces/');
 outdir = 'CaltechFaces/my2_train_faces/';
 faces = dir('./CaltechFaces/my_train_faces/*.jpg');
 for ii = 1:size(faces,1)
