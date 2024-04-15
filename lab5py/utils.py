@@ -13,7 +13,7 @@ def log_model(x, a, b, c):
     return a + b * np.log(x + c)
 
 def plot_log_fit(running_losses):
-    with no_grad():
+    with torch.no_grad():
         epochs = list(range(len(running_losses)))
         # Prepare x and y data, shift x data to ensure positivity 
         x_data = np.array(epochs) + 1  # +1 to avoid log(0) which is undefined
@@ -36,7 +36,7 @@ def plot_log_fit(running_losses):
         plt.show()
 
 def plot_moving_average(running_losses):
-    with no_grad():
+    with torch.no_grad():
         plt.figure(figsize=(10, 5))
         # Data points
         epochs = list(range(len(running_losses)))
@@ -59,7 +59,7 @@ def plot_moving_average(running_losses):
 
 # fit poly expression
 def plot_poly_fit(running_losses, deg):
-    with no_grad():   
+    with torch.no_grad():   
         plt.figure(figsize=(10, 5))
         
         # Data points
