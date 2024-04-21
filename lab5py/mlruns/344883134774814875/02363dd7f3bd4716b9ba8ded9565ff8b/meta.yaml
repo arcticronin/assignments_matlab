@@ -1,0 +1,15 @@
+artifact_uri: file:///home/ronin/Dev/notebooks/machinelearningformodeling/supervisedLearning/lab5py/mlruns/344883134774814875/02363dd7f3bd4716b9ba8ded9565ff8b/artifacts
+end_time: 1713670908427
+entry_point_name: ''
+experiment_id: '344883134774814875'
+lifecycle_stage: active
+run_id: 02363dd7f3bd4716b9ba8ded9565ff8b
+run_name: skillful-asp-452
+run_uuid: 02363dd7f3bd4716b9ba8ded9565ff8b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713670012403
+status: 3
+tags: []
+user_id: ronin

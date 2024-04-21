@@ -1,0 +1,25 @@
+,model_name,Duration,learning_rate,optimizer_or_momentum,accuracy,epochs_needed
+0,"relu, leaky relu, dropout",4.5min,0.001,0.9,0.6739,1.0
+1,"relu, leaky relu, dropout",5.8min,0.001,0.5,0.677,2.0
+2,"relu, leaky relu, dropout",9.8min,0.001,Adam,0.6712,4.0
+3,"relu, leaky relu, dropout",6.9min,0.005,0.9,0.6027,4.0
+4,"relu, leaky relu, dropout",5.4min,0.005,0.5,0.6077,2.0
+5,"relu, leaky relu, dropout",6.6min,0.005,Adam,0.4506,2.0
+6,"relu, leaky relu, no dropout",9.2min,0.001,0.9,0.7479,7.0
+7,"relu, leaky relu, no dropout",4.6min,0.001,0.5,0.7493,1.0
+8,"relu, leaky relu, no dropout",5.4min,0.001,Adam,0.7371,1.0
+9,"relu, leaky relu, no dropout",10.6min,0.005,0.9,0.7368,9.0
+10,"relu, leaky relu, no dropout",10.7min,0.005,0.5,0.7569,9.0
+11,"relu, leaky relu, no dropout",11.8min,0.005,Adam,0.7545,8.0
+12,full relu with batch normalization,10.5min,0.001,0.9,Not Converging,9.0
+13,full relu with batch normalization,14.9min,0.001,0.5,Not Converging,20.0
+14,full relu with batch normalization,13.5min,0.001,Adam,Not Converging,9.0
+15,full relu with batch normalization,15.1min,0.005,0.9,Not Converging,19.0
+16,full relu with batch normalization,15.0min,0.005,0.5,Not Converging,20.0
+17,full relu with batch normalization,26.2min,0.005,Adam,Not Converging,20.0
+18,"full relu, without batch normalization",12.9min,0.001,0.9,Not Converging,20.0
+19,"full relu, without batch normalization",12.8min,0.001,0.5,Not Converging,16.0
+20,"full relu, without batch normalization",16.6min,0.001,Adam,Not Converging,16.0
+21,"full relu, without batch normalization",13.1min,0.005,0.9,Not Converging,20.0
+22,"full relu, without batch normalization",13.1min,0.005,0.5,Not Converging,19.0
+23,"full relu, without batch normalization",26.4min,0.005,Adam,Not Converging,20.0

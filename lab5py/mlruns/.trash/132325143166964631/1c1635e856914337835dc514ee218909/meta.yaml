@@ -1,0 +1,16 @@
+artifact_uri: file:///home/ronin/Dev/notebooks/machinelearningformodeling/supervisedLearning/lab5py/mlruns/132325143166964631/1c1635e856914337835dc514ee218909/artifacts
+deleted_time: 1713657650769
+end_time: 1713656945729
+entry_point_name: ''
+experiment_id: '132325143166964631'
+lifecycle_stage: deleted
+run_id: 1c1635e856914337835dc514ee218909
+run_name: gaudy-shark-155
+run_uuid: 1c1635e856914337835dc514ee218909
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713656945725
+status: 4
+tags: []
+user_id: ronin

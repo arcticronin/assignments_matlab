@@ -1,0 +1,16 @@
+artifact_uri: file:///home/ronin/Dev/notebooks/machinelearningformodeling/supervisedLearning/lab5py/mlruns/132325143166964631/569ca3a1dabb46cb9713b0d4f9b4c1d8/artifacts
+deleted_time: 1713657650768
+end_time: 1713657543523
+entry_point_name: ''
+experiment_id: '132325143166964631'
+lifecycle_stage: deleted
+run_id: 569ca3a1dabb46cb9713b0d4f9b4c1d8
+run_name: gregarious-goat-583
+run_uuid: 569ca3a1dabb46cb9713b0d4f9b4c1d8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713657541265
+status: 3
+tags: []
+user_id: ronin

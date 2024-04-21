@@ -1,0 +1,15 @@
+artifact_uri: file:///home/ronin/Dev/notebooks/machinelearningformodeling/supervisedLearning/lab5py/mlruns/344883134774814875/7716b94c7bda4114ae03602720750acb/artifacts
+end_time: 1713676747903
+entry_point_name: ''
+experiment_id: '344883134774814875'
+lifecycle_stage: active
+run_id: 7716b94c7bda4114ae03602720750acb
+run_name: adaptable-fish-472
+run_uuid: 7716b94c7bda4114ae03602720750acb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713676399178
+status: 3
+tags: []
+user_id: ronin

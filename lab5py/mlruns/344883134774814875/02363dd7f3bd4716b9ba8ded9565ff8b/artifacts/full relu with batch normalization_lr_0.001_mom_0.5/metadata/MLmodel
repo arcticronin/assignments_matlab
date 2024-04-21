@@ -1,0 +1,12 @@
+artifact_path: full relu with batch normalization_lr_0.001_mom_0.5
+flavors:
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.3.2
+mlflow_version: 2.12.1
+model_size_bytes: 2117249
+model_uuid: 23d02ad407af4b378c4c51576bbb97cb
+run_id: 02363dd7f3bd4716b9ba8ded9565ff8b
+utc_time_created: '2024-04-21 03:41:47.055310'

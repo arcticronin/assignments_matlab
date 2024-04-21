@@ -1,0 +1,15 @@
+artifact_uri: file:///home/ronin/Dev/notebooks/machinelearningformodeling/supervisedLearning/lab5py/mlruns/344883134774814875/2ece731133024567a2a387411965f367/artifacts
+end_time: 1713667394169
+entry_point_name: ''
+experiment_id: '344883134774814875'
+lifecycle_stage: active
+run_id: 2ece731133024567a2a387411965f367
+run_name: thundering-skunk-200
+run_uuid: 2ece731133024567a2a387411965f367
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713665825009
+status: 3
+tags: []
+user_id: ronin

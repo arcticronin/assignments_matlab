@@ -1,0 +1,15 @@
+artifact_uri: file:///home/ronin/Dev/notebooks/machinelearningformodeling/supervisedLearning/lab5py/mlruns/344883134774814875/b7d8703e15cf484695a66d34a6ee2a97/artifacts
+end_time: 1713669202455
+entry_point_name: ''
+experiment_id: '344883134774814875'
+lifecycle_stage: active
+run_id: b7d8703e15cf484695a66d34a6ee2a97
+run_name: flawless-boar-821
+run_uuid: b7d8703e15cf484695a66d34a6ee2a97
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713668294059
+status: 3
+tags: []
+user_id: ronin

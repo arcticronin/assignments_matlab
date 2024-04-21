@@ -1,0 +1,12 @@
+artifact_path: relu, leaky relu, dropout_lr_0.001_mom_0.5
+flavors:
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.3.2
+mlflow_version: 2.12.1
+model_size_bytes: 2117590
+model_uuid: 7b2fbfa8683a4c4b98f7fc519fb673be
+run_id: 7716b94c7bda4114ae03602720750acb
+utc_time_created: '2024-04-21 05:19:06.469170'

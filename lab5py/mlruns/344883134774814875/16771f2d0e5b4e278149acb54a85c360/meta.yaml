@@ -1,0 +1,15 @@
+artifact_uri: file:///home/ronin/Dev/notebooks/machinelearningformodeling/supervisedLearning/lab5py/mlruns/344883134774814875/16771f2d0e5b4e278149acb54a85c360/artifacts
+end_time: 1713674125363
+entry_point_name: ''
+experiment_id: '344883134774814875'
+lifecycle_stage: active
+run_id: 16771f2d0e5b4e278149acb54a85c360
+run_name: rebellious-perch-202
+run_uuid: 16771f2d0e5b4e278149acb54a85c360
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713673849493
+status: 3
+tags: []
+user_id: ronin

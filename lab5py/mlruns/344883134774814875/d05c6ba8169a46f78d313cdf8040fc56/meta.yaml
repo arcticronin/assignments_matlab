@@ -1,0 +1,15 @@
+artifact_uri: file:///home/ronin/Dev/notebooks/machinelearningformodeling/supervisedLearning/lab5py/mlruns/344883134774814875/d05c6ba8169a46f78d313cdf8040fc56/artifacts
+end_time: 1713676399177
+entry_point_name: ''
+experiment_id: '344883134774814875'
+lifecycle_stage: active
+run_id: d05c6ba8169a46f78d313cdf8040fc56
+run_name: redolent-cub-44
+run_uuid: d05c6ba8169a46f78d313cdf8040fc56
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713675808979
+status: 3
+tags: []
+user_id: ronin

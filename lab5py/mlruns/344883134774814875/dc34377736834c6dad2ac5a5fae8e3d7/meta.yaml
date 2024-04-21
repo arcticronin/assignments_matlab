@@ -1,0 +1,15 @@
+artifact_uri: file:///home/ronin/Dev/notebooks/machinelearningformodeling/supervisedLearning/lab5py/mlruns/344883134774814875/dc34377736834c6dad2ac5a5fae8e3d7/artifacts
+end_time: 1713665825008
+entry_point_name: ''
+experiment_id: '344883134774814875'
+lifecycle_stage: active
+run_id: dc34377736834c6dad2ac5a5fae8e3d7
+run_name: suave-turtle-646
+run_uuid: dc34377736834c6dad2ac5a5fae8e3d7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713665048518
+status: 3
+tags: []
+user_id: ronin

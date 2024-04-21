@@ -1,0 +1,15 @@
+artifact_uri: file:///home/ronin/Dev/notebooks/machinelearningformodeling/supervisedLearning/lab5py/mlruns/344883134774814875/953e24bcab7345cfac5c0e3a0d0b6814/artifacts
+end_time: 1713671539495
+entry_point_name: ''
+experiment_id: '344883134774814875'
+lifecycle_stage: active
+run_id: 953e24bcab7345cfac5c0e3a0d0b6814
+run_name: bouncy-fox-678
+run_uuid: 953e24bcab7345cfac5c0e3a0d0b6814
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713670908428
+status: 3
+tags: []
+user_id: ronin

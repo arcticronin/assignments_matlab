@@ -1,0 +1,16 @@
+artifact_uri: file:///home/ronin/Dev/notebooks/machinelearningformodeling/supervisedLearning/lab5py/mlruns/132325143166964631/e7ac3c332573444ca80f8d867539ce74/artifacts
+deleted_time: 1713657650768
+end_time: 1713657450252
+entry_point_name: ''
+experiment_id: '132325143166964631'
+lifecycle_stage: deleted
+run_id: e7ac3c332573444ca80f8d867539ce74
+run_name: youthful-mule-529
+run_uuid: e7ac3c332573444ca80f8d867539ce74
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713657414266
+status: 4
+tags: []
+user_id: ronin

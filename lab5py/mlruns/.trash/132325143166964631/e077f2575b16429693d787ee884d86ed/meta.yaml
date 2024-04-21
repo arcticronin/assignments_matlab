@@ -1,0 +1,16 @@
+artifact_uri: file:///home/ronin/Dev/notebooks/machinelearningformodeling/supervisedLearning/lab5py/mlruns/132325143166964631/e077f2575b16429693d787ee884d86ed/artifacts
+deleted_time: 1713659479188
+end_time: 1713659439564
+entry_point_name: ''
+experiment_id: '132325143166964631'
+lifecycle_stage: deleted
+run_id: e077f2575b16429693d787ee884d86ed
+run_name: intrigued-ant-653
+run_uuid: e077f2575b16429693d787ee884d86ed
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713659377181
+status: 4
+tags: []
+user_id: ronin

@@ -1,0 +1,15 @@
+artifact_uri: file:///home/ronin/Dev/notebooks/machinelearningformodeling/supervisedLearning/lab5py/mlruns/344883134774814875/0afd5faccceb47ec819db97a3dfd002b/artifacts
+end_time: 1713662497661
+entry_point_name: ''
+experiment_id: '344883134774814875'
+lifecycle_stage: active
+run_id: 0afd5faccceb47ec819db97a3dfd002b
+run_name: selective-bird-251
+run_uuid: 0afd5faccceb47ec819db97a3dfd002b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713661711169
+status: 3
+tags: []
+user_id: ronin

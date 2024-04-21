@@ -1,0 +1,15 @@
+artifact_uri: file:///home/ronin/Dev/notebooks/machinelearningformodeling/supervisedLearning/lab5py/mlruns/344883134774814875/f15cbe7da0f34917925f92a808a94961/artifacts
+end_time: 1713674674723
+entry_point_name: ''
+experiment_id: '344883134774814875'
+lifecycle_stage: active
+run_id: f15cbe7da0f34917925f92a808a94961
+run_name: popular-hare-848
+run_uuid: f15cbe7da0f34917925f92a808a94961
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713674125364
+status: 3
+tags: []
+user_id: ronin

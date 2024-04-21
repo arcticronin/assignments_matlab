@@ -1,0 +1,15 @@
+artifact_uri: file:///home/ronin/Dev/notebooks/machinelearningformodeling/supervisedLearning/lab5py/mlruns/332994735123147731/b61b05655fce4b0cb0a35e8174fabd1f/artifacts
+end_time: 1713657837442
+entry_point_name: ''
+experiment_id: '332994735123147731'
+lifecycle_stage: active
+run_id: b61b05655fce4b0cb0a35e8174fabd1f
+run_name: gregarious-shrew-676
+run_uuid: b61b05655fce4b0cb0a35e8174fabd1f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713657835758
+status: 3
+tags: []
+user_id: ronin

@@ -1,0 +1,15 @@
+artifact_uri: file:///home/ronin/Dev/notebooks/machinelearningformodeling/supervisedLearning/lab5py/mlruns/344883134774814875/fb13b0625ba04cdca4ea43a953c1e5a1/artifacts
+end_time: 1713672889693
+entry_point_name: ''
+experiment_id: '344883134774814875'
+lifecycle_stage: active
+run_id: fb13b0625ba04cdca4ea43a953c1e5a1
+run_name: orderly-bat-810
+run_uuid: fb13b0625ba04cdca4ea43a953c1e5a1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713672248707
+status: 3
+tags: []
+user_id: ronin

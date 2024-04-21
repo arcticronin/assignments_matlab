@@ -1,0 +1,16 @@
+artifact_uri: file:///home/ronin/Dev/notebooks/machinelearningformodeling/supervisedLearning/lab5py/mlruns/132325143166964631/eb85b82dc2344d1b92e9cf97f7fe6a3b/artifacts
+deleted_time: 1713659479188
+end_time: 1713659439565
+entry_point_name: ''
+experiment_id: '132325143166964631'
+lifecycle_stage: deleted
+run_id: eb85b82dc2344d1b92e9cf97f7fe6a3b
+run_name: wistful-trout-102
+run_uuid: eb85b82dc2344d1b92e9cf97f7fe6a3b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713657873767
+status: 4
+tags: []
+user_id: ronin

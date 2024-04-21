@@ -1,0 +1,15 @@
+artifact_uri: file:///home/ronin/Dev/notebooks/machinelearningformodeling/supervisedLearning/lab5py/mlruns/344883134774814875/c1cae6d4690f475aae3f0cca3ff5f02d/artifacts
+end_time: 1713672248706
+entry_point_name: ''
+experiment_id: '344883134774814875'
+lifecycle_stage: active
+run_id: c1cae6d4690f475aae3f0cca3ff5f02d
+run_name: treasured-wasp-323
+run_uuid: c1cae6d4690f475aae3f0cca3ff5f02d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713671539496
+status: 3
+tags: []
+user_id: ronin

@@ -1,0 +1,15 @@
+artifact_uri: file:///home/ronin/Dev/notebooks/machinelearningformodeling/supervisedLearning/lab5py/mlruns/344883134774814875/70c42e606d374a7e9132fe2c8ad82b8b/artifacts
+end_time: 1713675393803
+entry_point_name: ''
+experiment_id: '344883134774814875'
+lifecycle_stage: active
+run_id: 70c42e606d374a7e9132fe2c8ad82b8b
+run_name: chill-mole-292
+run_uuid: 70c42e606d374a7e9132fe2c8ad82b8b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713675070424
+status: 3
+tags: []
+user_id: ronin

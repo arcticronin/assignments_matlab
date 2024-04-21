@@ -1,0 +1,15 @@
+artifact_uri: file:///home/ronin/Dev/notebooks/machinelearningformodeling/supervisedLearning/lab5py/mlruns/344883134774814875/ab25d90958a742c4a0987f0eedb8be48/artifacts
+end_time: 1713677017829
+entry_point_name: ''
+experiment_id: '344883134774814875'
+lifecycle_stage: active
+run_id: ab25d90958a742c4a0987f0eedb8be48
+run_name: adorable-roo-984
+run_uuid: ab25d90958a742c4a0987f0eedb8be48
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713660126413
+status: 3
+tags: []
+user_id: ronin

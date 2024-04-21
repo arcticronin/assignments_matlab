@@ -1,0 +1,15 @@
+artifact_uri: file:///home/ronin/Dev/notebooks/machinelearningformodeling/supervisedLearning/lab5py/mlruns/344883134774814875/18afb3fb788a4cb6a8ace68740e6e9f3/artifacts
+end_time: 1713663285660
+entry_point_name: ''
+experiment_id: '344883134774814875'
+lifecycle_stage: active
+run_id: 18afb3fb788a4cb6a8ace68740e6e9f3
+run_name: wise-vole-968
+run_uuid: 18afb3fb788a4cb6a8ace68740e6e9f3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713662497662
+status: 3
+tags: []
+user_id: ronin
