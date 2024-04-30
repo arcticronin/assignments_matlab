@@ -7,6 +7,7 @@ import scipy
 import torch
 import collections
 from datetime import datetime, timedelta  # Import libraries for date and time manipulation
+from PIL import Image  # Import Image from PIL for image handling
 
 def datenum_to_datetime(datenum):
   """
