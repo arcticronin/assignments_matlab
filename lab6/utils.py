@@ -5,9 +5,12 @@ import numpy as np
 import os
 import scipy
 import torch
+import torchvision
 import collections
 from datetime import datetime, timedelta  # Import libraries for date and time manipulation
 from PIL import Image  # Import Image from PIL for image handling
+import matplotlib.pyplot as plt  # Plotting library for visualization
+
 
 def datenum_to_datetime(datenum):
   """
@@ -184,3 +187,31 @@ class FacesDataset(Dataset):
 
         sample = {'image': image, 'age': torch.tensor(age).float()}
         return sample
+
+
+
+def imshow(img):
+    # Unnormalize using the specific mean and std
+    for i in range(3):
+        img[i] = img[i] * 0.224 + 0.456  # Adjust based on the mean and std used for normalization
+    npimg = img.numpy()
+    plt.imshow(np.transpose(npimg, (1, 2, 0)))
+    plt.axis('off')  # Hide the axes
+
+def plot_images_from_loader(dataloader, num_images=4):
+    # Get a batch of images
+    dataiter = iter(dataloader)
+    d = next(dataiter)
+    images, labels = d["image"], d["age"]
+
+    # Create a grid of images
+    grid = torchvision.utils.make_grid(images[:num_images], nrow=num_images)
+    
+    # Show images
+    imshow(grid)
+    plt.savefig("photos.png")
+    plt.show()
+    return labels
+
+
+   
