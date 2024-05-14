@@ -2,6 +2,22 @@
 *.svg
 *.mat
 Data/
+data/
+lab5py/torch-receptive-field/
 Datasets/
 Images/
+lab6/imdb/
+lab6/imdb_crop/
+lab6/imdb_crop.tar
+lab6/imdb_meta.tar
+lab6/mlruns/
+lab6/*.pth
+lab08/*.pth
+lab08/*.zip
+lab08/data/
+lab08/.idea/
+lab08/outputs/
+lab08/.ipynb_checkpoints/
+lab08/inference_outputs/
+
 # END: /home/ronin/Dev/notebooks/machinelearningformodeling/supervisedLearning/.gitignore
