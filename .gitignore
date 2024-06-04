@@ -19,5 +19,11 @@ lab08/.idea/
 lab08/outputs/
 lab08/.ipynb_checkpoints/
 lab08/inference_outputs/
+lab09/test/
+lab09/train/
+lab09/data.yaml
+lab09/valid/
+lab09/*txt
+lab09/yolov5/
 
 # END: /home/ronin/Dev/notebooks/machinelearningformodeling/supervisedLearning/.gitignore
